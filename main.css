@@ -913,6 +913,7 @@ img {
   .scrollup {
     right: 3rem;
   }
+
 }
 
 .home__title {
@@ -929,4 +930,100 @@ img {
   background-clip: text;
   color: transparent;
 }
+
+.btn-wsp{
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  bottom: 30px;
+  right: 30px;
+  background: #0df053;
+  color: #fff;
+  border-radius: 70px;
+  text-align: center;
+  font-size: 35px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+    
+  }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .btn-wsp {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    bottom: 20px;
+    right: calc(3rem + 10px); /* Ajusta el valor según sea necesario */
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scrollup {
+    bottom: 20px;
+    right: 1rem;
+  }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .btn-wsp {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    bottom: 25px;
+    right: calc(3rem + 115px); /* Ajusta el valor según sea necesario */
+    font-size: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scrollup {
+    bottom: 25px;
+    right: 1rem;
+  }
+}
+
+/* Estilos para pantallas más grandes */
+@media (min-width: 1024px) and (max-width: 1151px) {
+  .btn-wsp {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    right: calc(3rem + 50px); /* Ajusta el valor según sea necesario */
+    font-size: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
+}
+
+/* Estilos para pantallas con ancho mínimo de 1152px */
+@media screen and (min-width: 1152px) {
+  .btn-wsp {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    right: calc(3rem + 120px); /* Ajusta el valor según sea necesario */
+    font-size: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
+}
+
 
