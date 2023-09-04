@@ -334,7 +334,7 @@ img {
 /*========================= BUTTON ======================*/
 .button {
   background-color: hsla(0, 0%, 100%, 0.2);
-  padding: 1.25rem 1.5rem;
+  padding: 1rem 1.5rem; /* Ajusta el tamaño del botón */
   color: var(--title-color);
   display: inline-flex;
   align-items: center;
@@ -343,6 +343,8 @@ img {
   font-weight: var(--font-semi-bold);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  position: relative;
+  overflow: hidden; /* Para evitar desbordamientos en dispositivos pequeños */
 }
 
 .button i {
@@ -357,7 +359,9 @@ img {
 
 
 
-
+.button:hover::before {
+  opacity: 1; /* Ajusta la opacidad al pasar el mouse */
+}
 @property --rotate {
   syntax: "<angle>";
   initial-value: 132deg;
@@ -384,6 +388,7 @@ img {
   top: -1%;
   left: -2%;
   animation: animate 2.5s linear infinite;
+  opacity: 0.7;
 }
 
 .button::after{
