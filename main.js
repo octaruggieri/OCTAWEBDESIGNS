@@ -98,3 +98,31 @@ const enviarMensaje = () => {
   
   const botonEnviar = document.getElementById("enviarWhatsApp");
   botonEnviar.addEventListener("click", enviarMensaje);
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".home__bg");
+    let currentIndex = 0;
+
+    function changeBackgroundImage() {
+        // Oculta todas las imágenes
+        images.forEach(image => {
+            image.classList.remove("active");
+        });
+
+        // Muestra la imagen activa
+        images[currentIndex].classList.add("active");
+
+        currentIndex = (currentIndex + 1) % images.length;
+
+        // Cambiar la imagen de fondo cada 10 segundos (10000 milisegundos)
+        setTimeout(changeBackgroundImage, 5000); // Cambia el tiempo aquí para ajustar la velocidad de cambio
+    }
+
+    // Inicia el cambio de imagen
+    changeBackgroundImage();
+});

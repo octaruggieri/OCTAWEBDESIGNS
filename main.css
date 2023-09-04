@@ -4,6 +4,8 @@
 /*========== VARIABLES CSS ==========*/
 :root {
   --header-height: 3.5rem;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
 
   /*========== COLORS ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
@@ -233,6 +235,7 @@ img {
 /*==================== HOME =====================*/
 .home {
   position: relative;
+  overflow: hidden;
 }
 
 .home__bg {
@@ -243,6 +246,12 @@ img {
   height: 750px;
   object-fit: cover;
   object-position: center;
+  transition: opacity 2s ease-in-out; /* Ajusta la velocidad de transición aquí */
+  opacity: 0;
+}
+
+.home__bg.active {
+  opacity: 1;
 }
 
 .home__shadow {
@@ -346,6 +355,70 @@ img {
   transform: translateX(0.25rem);
 }
 
+
+
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+.button:hover::before,
+.button:hover::after{
+  animation: none;
+  opacity: 0;
+}
+.button::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #37a5a5,
+    #2c86c2 44%,
+    #122b97
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: animate 2.5s linear infinite;
+}
+
+.button::after{
+  position: absolute;
+  content: '';
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    #37a5a5,
+    #2c86c2 44%,
+    #122b97
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: animate 2.5s linear infinite;
+}
+@keyframes animate {
+  0%{
+    --rotate: 0deg;
+  }
+  100%{
+    --rotate: 360deg;
+  }
+}
+
+
+
 /*====================== ABOUT ========================*/
 .about__container {
   row-gap: 3rem;
@@ -434,6 +507,11 @@ img {
   font-weight: 500;
 }
 
+.popular__location span, i{
+  text-decoration: none;
+  color: #fff;
+}
+
 .popular__location i {
   font-size: 1rem;
 }
@@ -441,6 +519,93 @@ img {
 .popular__image:hover .popular__img {
   transform: scale(1.2);
 }
+
+/* .card {
+  background: #181c24;
+  width: var(--card-width);
+  height: var(--card-height);
+  align-items: center;
+  padding: 4px;
+  position: relative;
+  border-radius: 0.5rem;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  text-align: center;
+  color: rgb(88 188 250 / 0%);
+  cursor: pointer;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.card:hover {
+  color: rgb(88 188 250 / 100%);
+  transition: color 1s;
+} */
+
+/* @property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+.card:hover::before,
+.card:hover::after{
+  animation: none;
+  opacity: 0;
+}
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #6a3094,
+    #c0242c 44%,
+    #f0cb35
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: animate 2.5s linear infinite;
+}
+
+.card::after{
+  position: absolute;
+  content: '';
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    #6a3094,
+    #c0242c 44%,
+    #f0cb35
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: animate 2.5s linear infinite;
+}
+@keyframes animate {
+  0%{
+    --rotate: 0deg;
+  }
+  100%{
+    --rotate: 360deg;
+  }
+} */
+
 
 /*=========================== EXPLORE ==============================*/
 .explore {
@@ -794,7 +959,7 @@ img {
     padding-top: 6.5rem;
   }
 
-  .home__image{
+  .home__image {
     background-image: url(images/compu\ cama\ 2.png);
   }
 
@@ -913,7 +1078,6 @@ img {
   .scrollup {
     right: 3rem;
   }
-
 }
 
 .home__title {
@@ -931,7 +1095,7 @@ img {
   color: transparent;
 }
 
-.btn-wsp{
+.btn-wsp {
   position: fixed;
   width: 55px;
   height: 55px;
@@ -945,8 +1109,7 @@ img {
   font-size: 35px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
   z-index: 100;
-    
-  }
+}
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
@@ -1025,5 +1188,3 @@ img {
     right: 3rem;
   }
 }
-
-
